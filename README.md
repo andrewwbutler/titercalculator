@@ -3,14 +3,14 @@
 ## Overview
 
 This repository contains the source code for the titer calculator web application for computing 
-titers from standard endpoint dilution assays. The app implements the following calculation methods:
+titers from standard endpoint dilution assays. The app currently implements the following calculation methods:
 
 1. [Reed-Muench](https://doi.org/10.1093/oxfordjournals.aje.a118408)
 2. [midSIN](https://midsin.physics.ryerson.ca/)
 
 ## Tech Stack
 
-This project was built using [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/docs/introduction). Calculations are handled via javascript, specifically the [jstat](https://www.npmjs.com/package/jstat), [brent-local-min-generator](https://www.npmjs.com/package/brent-local-min-generator) packages. Plotting is currently implemented via the [layercake](https://layercake.graphics/) framework.
+This project was built using [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/docs/introduction). Calculations are handled via javascript, specifically the [jstat](https://www.npmjs.com/package/jstat) and [brent-local-min-generator](https://www.npmjs.com/package/brent-local-min-generator) packages. Plotting is currently implemented via the [layercake](https://layercake.graphics/) framework.
 
 ## Contributing
 
