@@ -1,12 +1,12 @@
 <script>
 	import Well from "$lib/components/Well.svelte";
-
 	import PlateList from "$lib/components/PlateList.svelte";
 	import { createEmptyPlate, PlateStore, editingPlate } from '$lib/stores/PlateStore.js';
 	import Tabs from  '$lib/shared/Tabs.svelte';
 	import AddNewPlate from '$lib/components/AddNewPlate.svelte';
 	import PlateEditor from '$lib/components/PlateEditor.svelte';
 	import PlotPage from '$lib/components/PlotPage.svelte';
+	import github_svg from '$lib/images/github-mark.svg';
 
 	// tabs
 	let items = ['All Plates', 'Add New Plate', 'Edit Plate', 'Results'];
@@ -40,7 +40,9 @@
 </script>
 
 <main>
-		
+		<a href="https://github.com/andrewwbutler/titercalculator/"> 
+			<img class='github' src={github_svg}/> 
+		</a>
 		<Tabs {activeItem} {items} on:tabChange={tabChange}/>
 		{#if activeItem === 'All Plates'}
 			<PlateList on:edit={handleEdit}/>
@@ -62,6 +64,10 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-
+	.github{
+		float: right;
+		width: 30px;
+		padding-right: 10px;
+	}
 
 </style>
