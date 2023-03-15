@@ -41,6 +41,5 @@ export const ComputeTiters = (PlateStore, volume, dilution) => {
 			ms_titer_ul: MS_results[i].titer_ul
 		}, ...data];
 	}
-	console.log(data);
 	return(data); 
 }

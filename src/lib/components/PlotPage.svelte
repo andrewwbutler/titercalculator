@@ -21,7 +21,7 @@
 			plotData = tableData.filter((sample) => sample.rm_titer > 0);
 			errorSamples = errorData.map(a => a.sample).join(', ');
 			data.forEach(sample => {
-				let nameSplit = sample['sample'].split("-");
+				let nameSplit = sample['sample'].toString().split("-");
 				if (nameSplit.length > 1) {
 					sample['group'] = nameSplit[0];
 					sample['sampleName'] = nameSplit[1];
@@ -30,7 +30,7 @@
 					sample['sampleName'] = sample['sample'];
 				}
 			});
-		} 
+		}
 	}
 </script>
 
