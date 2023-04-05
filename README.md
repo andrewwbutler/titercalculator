@@ -10,7 +10,7 @@ titers from standard endpoint dilution assays. The app currently implements the 
 
 ## Tech Stack
 
-This project was built using [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/docs/introduction). Calculations are handled via javascript, specifically the [jstat](https://www.npmjs.com/package/jstat) and [brent-local-min-generator](https://www.npmjs.com/package/brent-local-min-generator) packages. Plotting is currently implemented via the [layercake](https://layercake.graphics/) framework.
+This project was built using [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/docs/introduction). Calculations are handled via javascript, specifically the [jstat](https://www.npmjs.com/package/jstat) and [brent-local-min-generator](https://www.npmjs.com/package/brent-local-min-generator) packages. Plotting is currently implemented via the [vega-lite](https://vega.github.io/vega-lite/) framework.
 
 ## Contributing
 

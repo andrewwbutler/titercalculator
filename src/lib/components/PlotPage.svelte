@@ -4,8 +4,8 @@
 	import { PlateStore, volume, dilution }  from '../stores/PlateStore.js';
 	import TiterTable from './TiterTable.svelte';
 	import Button from '../shared/Button.svelte';
-	import TiterPlot  from './TiterPlot.svelte';
 	import Modal from '../shared/Modal.svelte';
+	import TiterPlotVega from './TiterPlotVega.svelte';
 	let titerMethod = "rm_titer";
 	let tableData;
 	let errorData;
@@ -73,14 +73,13 @@
 	{/if}
 
 	{#if data != null}
-		<TiterPlot {plotData} {titerMethod} />
-		
+		<TiterPlotVega {plotData} {titerMethod}/>
 		<TiterTable data={tableData}/>
 		
 		{#if errorData.length > 0}
 			<h3 class='warning'> Warnings </h3>
 			The following samples had fewer than 2 replicates and are not displayed in the table or plot: {errorSamples}.
-		{/if}		
+		{/if}
 	{/if}
 </div>
 

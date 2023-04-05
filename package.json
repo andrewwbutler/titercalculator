@@ -19,7 +19,7 @@
 	"dependencies": {
 		"brent-local-min-generator": "^1.0.1",
 		"jstat": "^1.9.6",
-		"layercake": "^7.1.0"
+		"vega-embed": "^6.21.3"
 	},
 	"type": "module"
 }
