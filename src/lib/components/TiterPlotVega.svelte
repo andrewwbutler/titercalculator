@@ -7,6 +7,7 @@
     let groups
     let xAxisTitle;
     let legendSpec;
+    let xTicks;
 
     let spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -18,7 +19,7 @@
         },
         "mark": {"type": "circle", "size": 175},
         "encoding": {
-            "x": {"type": "quantitative", "scale": {"type": "log", "domain": [10, 100000]}, "axis": {"tickCount": 4, "labelFontSize": 15, "format": "e", "titleFontSize": 15, "titleFontWeight": 'normal', "titlePadding": 15}},
+            "x": {"type": "quantitative", "scale": {"type": "log"}, "axis": {"labelFontSize": 15, "format": "e", "titleFontSize": 15, "titleFontWeight": 'normal', "titlePadding": 15}},
             "y": {"type": "nominal", "axis": {"grid": true, "labelFontSize": 15}, "title": ""},
             "color": {"type": "nominal", "field": "group", "legend": {"labelFontSize": 20, "title": "", "symbolSize": 100}}
         }
@@ -29,7 +30,14 @@
         legendSpec = null;
         console.log(plotData);
         groups = [];
+        xTicks = [];
         plotData.forEach(sample => {
+            if (sample[titerMethod] < minTiter) {
+                minTiter = sample[titerMethod];
+            }
+            if (sample[titerMethod] > maxTiter) {
+                maxTiter = sample[titerMethod];
+            }
             if (!groups.includes(sample['group']) & sample['group'] != ' ') {
                 groups.push(sample['group']);
             }
@@ -45,7 +53,9 @@
             return sample1.group.localeCompare(sample2.group);
         })
         let samplesSorted = plotData.map(obj => obj.sampleName);
-
+        for (let i = String(minTiter).split(".")[0].length - 2; i < String(maxTiter).split(".")[0].length+1; i++) {
+            xTicks = [10**i, ...xTicks]
+        };
         xAxisTitle = "TCID50";
         if (titerMethod == "ms_titer_ul") {
           xAxisTitle = "SIN";
@@ -58,6 +68,8 @@
         spec.encoding.x.axis.title = xAxisTitle + "/\u03BCL"
         spec.encoding.y.sort = samplesSorted
         spec.encoding.color.legend = legendSpec
+        spec.encoding.x.scale.domain = [xTicks[xTicks.length - 1], xTicks[0]]
+        spec.encoding.x.axis.tickCount = xTicks.length - 2
     }
     $: {
         if ( typeof document !== 'undefined' ) { vegaEmbed('#vis', spec) }
