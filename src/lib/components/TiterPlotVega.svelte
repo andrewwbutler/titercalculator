@@ -83,7 +83,4 @@
         width: 100%;
         padding-bottom: 30px;
     }
-    .vega-embed {
-        width: 100%;
-    }
 </style>
